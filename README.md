@@ -1,15 +1,18 @@
 # Monker
 
-monker is a [NSQ](https://github.com/youzan/nsq) to [Kafka](https://github.com/apache/kafka) bridge
+monker is a [YouZan NSQ](https://github.com/youzan/nsq) to [Kafka](https://github.com/apache/kafka) bridge
 
-# Configuring
+## Architecture
 
-### Config file
+![](./doc/architecture/monker.png)
+
+## Configuring
 
 Config should have the following structure:
 
 ```yaml
 logLevel: info
+# You can also use redis as storage (e.g. `redis://redis:6379?key=yourkey`) 
 storageDSN: "inmem://unknown"
 worker:
   cycleTimeout: "2s"

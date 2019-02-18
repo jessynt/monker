@@ -5,6 +5,8 @@ require (
 	github.com/go-redis/redis v6.15.1+incompatible
 	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db // indirect
 	github.com/kelseyhightower/envconfig v1.3.0
+	github.com/onsi/ginkgo v1.7.0 // indirect
+	github.com/onsi/gomega v1.4.3 // indirect
 	github.com/pierrec/lz4 v2.0.5+incompatible // indirect
 	github.com/pkg/errors v0.8.0
 	github.com/satori/go.uuid v1.2.0

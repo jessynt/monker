@@ -4,6 +4,8 @@ monker is a [YouZan NSQ](https://github.com/youzan/nsq) to [Kafka](https://githu
 
 ## Architecture
 
+> The Monkey is designed and implemented with a distributed architecture.
+
 ![](./doc/architecture/monker.png)
 
 ## Configuring

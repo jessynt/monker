@@ -10,6 +10,7 @@ import (
 var (
 	ErrUnknownStorage = errors.New("unknown storage type")
 	ErrStorageIsEmpty = errors.New("No more messages in storage")
+	ErrRedisKeyMissed = errors.New("Redis storage requires 'key' parameter")
 )
 
 type Storage interface {
@@ -25,6 +26,11 @@ func NewStorage(dsn *url.URL) (Storage, error) {
 	switch dsn.Scheme {
 	case "inmem":
 		return NewInmemStorage(), nil
+	case "redis":
+		if len(dsn.Query().Get("key")) < 1 {
+			return nil, ErrRedisKeyMissed
+		}
+		return NewRedisStorage(dsn, dsn.Query().Get("key"))
 	}
 	return nil, ErrUnknownStorage
 }

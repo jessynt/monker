@@ -125,10 +125,12 @@ func run(ctx *cli.Context) error {
 
 	select {
 	case err := <-errs:
-		c.Stop()
-		monkerWorker.Stop()
+		if err := c.Stop(); err != nil {
+			log.WithError(err).Error("failed to stop consumer")
+		}
+		if err := monkerWorker.Stop(); err != nil {
+			log.WithError(err).Error("failed to stop monker worker")
+		}
 		return err
 	}
-
-	return nil
 }

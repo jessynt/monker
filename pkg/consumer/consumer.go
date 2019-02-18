@@ -31,6 +31,6 @@ func (c *Consumer) Stop() error {
 	log.Info("consumer stopping...")
 	c.nsqConsumer.Stop()
 	<-c.nsqConsumer.StopChan // block until stop completed
-	log.Info("consume stopped")
+	log.Info("consumer stopped")
 	return nil
 }
